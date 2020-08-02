@@ -1,2 +1,35 @@
-# Non-small-Cell-Lung-Cancer
-Applying Machine Learning Methods to Confirm Prognostic Factors in Predicting Survivability in Patients with Non-small Cell Lung Cancer
+應用機器學習方法確認預後因子於預測非小細胞肺癌患者存活情形  
+  
+**在此以Adaboost預測非小細胞肺癌患者第五年存活情形為例**
+## 使用套件
+* Python
+* pandas
+* scikit-learn
+* seaborn
+## 目的
+藉由機器學習技術，分析[美國癌症登記資料庫(Surveillance, Epidemiology, and End Results Program, SEER)](https://seer.cancer.gov/)，自西元2004至2014年間的非小細胞肺癌患者資料。在特徵選擇上，使用兩種方式：機器學習特徵挑選方法與四組醫療相關文獻中所提之非小細胞肺癌預後因子。利用Random Forest、Extra Trees、GBM 與Adaboost四種演算法建立預測模型，並使用Accuracy與AUC評估模型效能。
+本研究之研究目的為:
+1. 建立非小細胞肺癌患者第一年至第五年存活情形預測模型與模型效能比較。
+2. 找出影響非小細胞肺癌患者生存情形的重要因子。  
+**在此以Adaboost預測非小細胞肺癌患者第五年存活情形為例**
+## 研究流程
+1. Data gathering
+2. Data preprocess, EDA
+3. Feature selection
+4. SMOTE+ENN
+5. Model training
+6. Hyperparameter Tuning
+7. Prediction
+## 資料來源
+資料來源為SEER資料庫，自西元1973至2014年間的呼吸道相關癌症病例。本研究採用的資料範圍為2004年至2014年之非小細胞肺癌資料。
+* 包含以下四個資料集，追蹤截止日期為2016年12月31日:
+    * yr1973_2014.seer9  
+    包含自1973年至2014年，亞特蘭大、康乃狄克州、底特律、夏威夷州、愛荷華州、新墨西哥州、奧克蘭、西雅圖-普吉特海灣與猶他州以上九個SEER登記處的資料。
+    * yr1992_2014.sj_la_rg_ak  
+    包含自1992年至2014年，蒙特雷、洛杉磯、喬治亞州與阿拉斯加原住民SEER登記處的資料。
+    * yr2000_2014.ca_ky_lo_nj_gaS  
+    包含自2000年至2014年，加利福尼亞州、肯塔基州、路易斯安那州、紐澤西州與喬治亞州SEER登記處的資料。
+    * yr2005.lo_2nd_half  
+    包含自2005年7月至12月路易斯安那州的診斷資料，因Katrina颱風在這六個月的期間對路易斯安那州的人口產生了很大的影響，大多數的SEER報告未分析在這六個月間路易斯安那州的診斷資料，因此將此資料集在本研究中排除。
+* 資料採用範圍:  
+    本研究採用前三個資料集 yr1973_2014.seer9、yr1992_2014.sj_la_rg_ak、yr2000_2014.ca_ky_lo_nj_ga 呼吸道相關癌症病例中的非小細胞肺癌資料。
